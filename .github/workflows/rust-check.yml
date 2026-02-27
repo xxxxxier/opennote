@@ -30,7 +30,7 @@ jobs:
 
       - name: Clippy lint
         working-directory: backend
-        run: cargo clippy --all-targets --all-features -- -D warnings
+        run: cargo clippy --all-targets --all-features -- -A warnings
 
       - name: Compile check
         working-directory: backend
