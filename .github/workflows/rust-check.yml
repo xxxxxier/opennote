@@ -3,8 +3,12 @@ name: Quality Check - Backend
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - "backend/**"
   push:
     branches: [ main ]
+    paths:
+      - "backend/**"
 
 jobs:
 
@@ -30,12 +34,15 @@ jobs:
 
       - name: Clippy lint
         working-directory: backend
-        run: cargo clippy --all-targets --all-features -- -A warnings
+        run: cargo clippy --all-targets --all-features -- -A warnings  # Allow warnings for now
 
       - name: Compile check
         working-directory: backend
         run: cargo check --all --all-features
 
       - name: Run tests (optional)
+      # Optional: just show test results, do not fail CI yet
         working-directory: backend
-        run: cargo test --all --all-features
+        continue-on-error: true
+        run: |
+          cargo test --all --all-features

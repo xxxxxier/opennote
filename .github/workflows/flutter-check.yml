@@ -3,8 +3,12 @@ name: Quality Check - Frontend
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - "frontend/**"
   push:
     branches: [ main ]
+    paths:
+      - "frontend/**"
 
 jobs:
     
