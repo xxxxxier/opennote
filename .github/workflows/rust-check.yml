@@ -21,15 +21,21 @@ jobs:
 
       - name: Cache cargo
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: backend
 
       - name: Check format
+        working-directory: backend
         run: cargo fmt --all -- --check
 
       - name: Clippy lint
+        working-directory: backend
         run: cargo clippy --all-targets --all-features -- -D warnings
 
       - name: Compile check
+        working-directory: backend
         run: cargo check --all --all-features
 
       - name: Run tests (optional)
+        working-directory: backend
         run: cargo test --all --all-features
