@@ -14,9 +14,14 @@ class DocumentChunkSearchResult {
   String? documentTitle;
   double score;
 
-  DocumentChunkSearchResult({required this.documentChunk, required this.score, required this.collectionTitle, required this.documentTitle});
+  DocumentChunkSearchResult(
+      {required this.documentChunk,
+      required this.score,
+      required this.collectionTitle,
+      required this.documentTitle});
 
-  factory DocumentChunkSearchResult.fromJson(Map<String, dynamic> json) => _$DocumentChunkSearchResultFromJson(json);
+  factory DocumentChunkSearchResult.fromJson(Map<String, dynamic> json) =>
+      _$DocumentChunkSearchResultFromJson(json);
 
   Map<String, dynamic> toJson() => _$DocumentChunkSearchResultToJson(this);
 }
@@ -38,7 +43,9 @@ class SearchService {
       },
     );
     final List<dynamic> chunksJson = response.data!["data"];
-    return chunksJson.map((json) => DocumentChunkSearchResult.fromJson(json)).toList();
+    return chunksJson
+        .map((json) => DocumentChunkSearchResult.fromJson(json))
+        .toList();
   }
 
   Future<List<DocumentChunkSearchResult>> keywordSearch(
@@ -57,6 +64,8 @@ class SearchService {
       },
     );
     final List<dynamic> chunksJson = response.data!["data"];
-    return chunksJson.map((json) => DocumentChunkSearchResult.fromJson(json)).toList();
+    return chunksJson
+        .map((json) => DocumentChunkSearchResult.fromJson(json))
+        .toList();
   }
 }

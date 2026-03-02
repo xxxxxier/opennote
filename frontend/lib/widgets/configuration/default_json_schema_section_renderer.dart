@@ -27,4 +27,3 @@ class DefaultJsonSchemaSectionRenderer extends ConfigurationSectionRenderer {
     );
   }
 }
-

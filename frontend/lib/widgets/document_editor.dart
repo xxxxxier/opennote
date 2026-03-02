@@ -31,8 +31,7 @@ class _DocumentEditorState extends State<DocumentEditor> {
           _editorScrollController.hasClients) {
         double percentage = 0.0;
         if (_editorScrollController.position.maxScrollExtent > 0) {
-          percentage =
-              _editorScrollController.offset /
+          percentage = _editorScrollController.offset /
               _editorScrollController.position.maxScrollExtent;
         }
 
@@ -52,8 +51,7 @@ class _DocumentEditorState extends State<DocumentEditor> {
           _previewScrollController.hasClients) {
         double percentage = 0.0;
         if (_previewScrollController.position.maxScrollExtent > 0) {
-          percentage =
-              _previewScrollController.offset /
+          percentage = _previewScrollController.offset /
               _previewScrollController.position.maxScrollExtent;
         }
 

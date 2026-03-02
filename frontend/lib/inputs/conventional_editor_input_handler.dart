@@ -24,8 +24,7 @@ class ConventionalEditorInputHandler extends StatefulWidget {
 }
 
 class _ConventionalEditorInputHandler
-    extends State<ConventionalEditorInputHandler>
-    with EditorActions {
+    extends State<ConventionalEditorInputHandler> with EditorActions {
   final UndoHistoryController _undoController = UndoHistoryController();
 
   @override

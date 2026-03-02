@@ -37,10 +37,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
           _usernameController.text,
           _passwordController.text,
         );
-        
+
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Registration successful! Please login.')),
+            const SnackBar(
+                content: Text('Registration successful! Please login.')),
           );
           Navigator.of(context).pop(); // Go back to login screen
         }
@@ -77,7 +78,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: Text(
                       _errorMessage!,
-                      style: TextStyle(color: Theme.of(context).colorScheme.error),
+                      style:
+                          TextStyle(color: Theme.of(context).colorScheme.error),
                       textAlign: TextAlign.center,
                     ),
                   ),

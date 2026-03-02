@@ -88,24 +88,24 @@ class _KeyBindingRecorderState extends State<KeyBindingRecorder> {
             if (event is! KeyDownEvent) return KeyEventResult.handled;
 
             final label = event.logicalKey.keyLabel;
-            
+
             // Check for modifiers
-            if (event.logicalKey == LogicalKeyboardKey.controlLeft || 
+            if (event.logicalKey == LogicalKeyboardKey.controlLeft ||
                 event.logicalKey == LogicalKeyboardKey.controlRight) {
               if (_key == null) setState(() => _modifiers.add('ctrl'));
               return KeyEventResult.handled;
             }
-            if (event.logicalKey == LogicalKeyboardKey.altLeft || 
+            if (event.logicalKey == LogicalKeyboardKey.altLeft ||
                 event.logicalKey == LogicalKeyboardKey.altRight) {
               if (_key == null) setState(() => _modifiers.add('alt'));
               return KeyEventResult.handled;
             }
-            if (event.logicalKey == LogicalKeyboardKey.shiftLeft || 
+            if (event.logicalKey == LogicalKeyboardKey.shiftLeft ||
                 event.logicalKey == LogicalKeyboardKey.shiftRight) {
               if (_key == null) setState(() => _modifiers.add('shift'));
               return KeyEventResult.handled;
             }
-            if (event.logicalKey == LogicalKeyboardKey.metaLeft || 
+            if (event.logicalKey == LogicalKeyboardKey.metaLeft ||
                 event.logicalKey == LogicalKeyboardKey.metaRight) {
               if (_key == null) setState(() => _modifiers.add('meta'));
               return KeyEventResult.handled;
@@ -114,15 +114,19 @@ class _KeyBindingRecorderState extends State<KeyBindingRecorder> {
             // If it's not a modifier, it's a key
             final keyService = KeyBindingService();
             final normalizedKey = keyService.normalizeKeyLabel(label);
-            
+
             setState(() {
               if (_key == null) {
                 _key = normalizedKey;
                 // Add any held modifiers from HardwareKeyboard (in case they were held before focus)
-                if (HardwareKeyboard.instance.isControlPressed) _modifiers.add('ctrl');
-                if (HardwareKeyboard.instance.isAltPressed) _modifiers.add('alt');
-                if (HardwareKeyboard.instance.isShiftPressed) _modifiers.add('shift');
-                if (HardwareKeyboard.instance.isMetaPressed) _modifiers.add('meta');
+                if (HardwareKeyboard.instance.isControlPressed)
+                  _modifiers.add('ctrl');
+                if (HardwareKeyboard.instance.isAltPressed)
+                  _modifiers.add('alt');
+                if (HardwareKeyboard.instance.isShiftPressed)
+                  _modifiers.add('shift');
+                if (HardwareKeyboard.instance.isMetaPressed)
+                  _modifiers.add('meta');
               } else {
                 // Add to following keys
                 _followingKeys.add(normalizedKey);
@@ -138,11 +142,15 @@ class _KeyBindingRecorderState extends State<KeyBindingRecorder> {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: _isRecording ? Theme.of(context).primaryColor : Theme.of(context).dividerColor,
+                  color: _isRecording
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).dividerColor,
                   width: _isRecording ? 2 : 1,
                 ),
                 borderRadius: BorderRadius.circular(4),
-                color: _isRecording ? Theme.of(context).primaryColor.withOpacity(0.1) : null,
+                color: _isRecording
+                    ? Theme.of(context).primaryColor.withOpacity(0.1)
+                    : null,
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -154,12 +162,15 @@ class _KeyBindingRecorderState extends State<KeyBindingRecorder> {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    _isRecording 
-                      ? 'Press keys...' 
-                      : (_key != null ? _formatShortcut() : 'Click to record'),
+                    _isRecording
+                        ? 'Press keys...'
+                        : (_key != null
+                            ? _formatShortcut()
+                            : 'Click to record'),
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: _isRecording ? Theme.of(context).primaryColor : null,
+                      color:
+                          _isRecording ? Theme.of(context).primaryColor : null,
                     ),
                   ),
                 ],
@@ -179,11 +190,11 @@ class _KeyBindingRecorderState extends State<KeyBindingRecorder> {
     } else {
       result = _key!;
     }
-    
+
     if (_followingKeys.isNotEmpty) {
       result += ' ${_followingKeys.join(' ')}';
     }
-    
+
     return result;
   }
 }

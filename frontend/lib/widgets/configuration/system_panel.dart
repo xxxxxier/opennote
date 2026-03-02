@@ -28,8 +28,8 @@ class _SystemPanelState extends State<SystemPanel> {
     if (appState.username == null) return;
 
     setState(() => _isLoading = true);
-    backendServiceVersionNumber = await appState
-        .getBackendServiceVersionNumber();
+    backendServiceVersionNumber =
+        await appState.getBackendServiceVersionNumber();
     if (mounted) {
       setState(() => _isLoading = false);
     }

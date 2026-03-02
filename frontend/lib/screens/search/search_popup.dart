@@ -218,8 +218,8 @@ class _SearchPopupState extends State<SearchPopup> {
             Text(
               'No results found',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
-              ),
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
             ),
           ],
         ),
@@ -231,8 +231,8 @@ class _SearchPopupState extends State<SearchPopup> {
         child: Text(
           'Type to search...',
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: Theme.of(context).colorScheme.outline,
-          ),
+                color: Theme.of(context).colorScheme.outline,
+              ),
         ),
       );
     }
@@ -262,14 +262,14 @@ class _SearchPopupState extends State<SearchPopup> {
                 Text(
                   'From ${result.documentTitle ?? '???'} > ${result.collectionTitle ?? '???'}',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
                 ),
                 Text(
                   'Score: ${(result.score * 100).toStringAsFixed(0)}%',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
                 ),
               ],
             ),

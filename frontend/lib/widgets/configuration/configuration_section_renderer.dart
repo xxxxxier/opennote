@@ -14,4 +14,3 @@ abstract class ConfigurationSectionRenderer {
     required ValueChanged<Map<String, dynamic>> onSectionChanged,
   });
 }
-

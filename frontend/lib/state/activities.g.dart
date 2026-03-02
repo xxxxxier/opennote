@@ -25,9 +25,9 @@ Map<String, dynamic> _$SavedTabsStatesToJson(SavedTabsStates instance) =>
     };
 
 ActiveObject _$ActiveObjectFromJson(Map<String, dynamic> json) => ActiveObject(
-  $enumDecode(_$ActiveObjectTypeEnumMap, json['type']),
-  json['id'] as String?,
-);
+      $enumDecode(_$ActiveObjectTypeEnumMap, json['type']),
+      json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ActiveObjectToJson(ActiveObject instance) =>
     <String, dynamic>{
