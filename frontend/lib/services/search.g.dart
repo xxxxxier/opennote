@@ -8,20 +8,22 @@ part of 'search.dart';
 
 DocumentChunkSearchResult _$DocumentChunkSearchResultFromJson(
   Map<String, dynamic> json,
-) => DocumentChunkSearchResult(
-  documentChunk: DocumentChunk.fromJson(
-    json['document_chunk'] as Map<String, dynamic>,
-  ),
-  score: (json['score'] as num).toDouble(),
-  collectionTitle: json['collection_title'] as String?,
-  documentTitle: json['document_title'] as String?,
-);
+) =>
+    DocumentChunkSearchResult(
+      documentChunk: DocumentChunk.fromJson(
+        json['document_chunk'] as Map<String, dynamic>,
+      ),
+      score: (json['score'] as num).toDouble(),
+      collectionTitle: json['collection_title'] as String?,
+      documentTitle: json['document_title'] as String?,
+    );
 
 Map<String, dynamic> _$DocumentChunkSearchResultToJson(
   DocumentChunkSearchResult instance,
-) => <String, dynamic>{
-  'document_chunk': instance.documentChunk,
-  'collection_title': instance.collectionTitle,
-  'document_title': instance.documentTitle,
-  'score': instance.score,
-};
+) =>
+    <String, dynamic>{
+      'document_chunk': instance.documentChunk,
+      'collection_title': instance.collectionTitle,
+      'document_title': instance.documentTitle,
+      'score': instance.score,
+    };

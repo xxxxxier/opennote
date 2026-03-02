@@ -3,8 +3,12 @@ name: Quality Check - Frontend
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - "frontend/**"
   push:
     branches: [ main ]
+    paths:
+      - "frontend/**"
 
 jobs:
     
@@ -22,13 +26,17 @@ jobs:
           channel: stable
 
       - name: Install dependencies
+        working-directory: frontend
         run: flutter pub get
 
       - name: Check formatting
+        working-directory: frontend
         run: dart format --output=none --set-exit-if-changed .
 
       - name: Static analysis
+        working-directory: frontend
         run: flutter analyze
 
       - name: Build (compile check)
+        working-directory: frontend
         run: flutter build web --debug

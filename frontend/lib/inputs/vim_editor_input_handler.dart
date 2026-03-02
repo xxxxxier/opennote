@@ -51,8 +51,8 @@ class _VimEditorInputHandlerState extends State<VimEditorInputHandler>
     final modeColor = mode == KeyContext.editorNormal
         ? Colors.green.withOpacity(0.1)
         : mode == KeyContext.editorVisual
-        ? Colors.blue.withOpacity(0.1)
-        : Colors.transparent;
+            ? Colors.blue.withOpacity(0.1)
+            : Colors.transparent;
 
     // Determine the cursor size by mode
     double cursorWidth = 2.0;

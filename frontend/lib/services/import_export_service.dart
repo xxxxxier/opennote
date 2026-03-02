@@ -152,7 +152,8 @@ class ImportExportService {
         final encodedArchive = zipEncoder.encode(archive);
 
         if (encodedArchive != null) {
-          final safeCollectionTitle = FileUtils.sanitizeFilename(collectionTitle);
+          final safeCollectionTitle =
+              FileUtils.sanitizeFilename(collectionTitle);
           final zipFileName = '$safeCollectionTitle.zip';
           await downloadFile(encodedArchive, zipFileName);
         }

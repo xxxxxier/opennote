@@ -39,7 +39,7 @@ void showSearchPopup(BuildContext context) {
     // Unfocus, otherwise, it won't jump to the search result if triggered
     // when the cursor is active in the editor
     FocusManager.instance.primaryFocus?.unfocus();
-    
+
     showDialog(
       context: context,
       builder: (context) => SearchPopup(scope: scope, scopeId: scopeId!),
@@ -52,10 +52,10 @@ void showSearchPopup(BuildContext context) {
 }
 
 void showConfigurationPopup(BuildContext context) {
-  // Unfocus to prevent potential unwanted behaviors. 
+  // Unfocus to prevent potential unwanted behaviors.
   // Refer to the relevant comment in `showSearchPopup`
   FocusManager.instance.primaryFocus?.unfocus();
-  
+
   showDialog(
     context: context,
     builder: (context) => const ConfigurationPopup(),
@@ -67,10 +67,10 @@ Future<String?> showNameDialog(
   String title, {
   String? initialValue,
 }) {
-  // Unfocus to prevent potential unwanted behaviors. 
+  // Unfocus to prevent potential unwanted behaviors.
   // Refer to the relevant comment in `showSearchPopup`
   FocusManager.instance.primaryFocus?.unfocus();
-  
+
   final controller = TextEditingController(text: initialValue);
   return showDialog<String>(
     context: context,

@@ -290,8 +290,8 @@ class KeyBindingService {
       if (candidates.isEmpty) return null;
 
       // Check if any candidate requires following keys
-      final MapEntry<KeyCombination, AppAction>? exactMatch = candidates
-          .firstWhereOrNull((e) => e.key.followingKeys.isEmpty);
+      final MapEntry<KeyCombination, AppAction>? exactMatch =
+          candidates.firstWhereOrNull((e) => e.key.followingKeys.isEmpty);
       final List<MapEntry<KeyCombination, AppAction>> sequenceCandidates =
           candidates.where((e) => e.key.followingKeys.isNotEmpty).toList();
 

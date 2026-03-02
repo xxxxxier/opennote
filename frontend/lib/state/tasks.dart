@@ -22,11 +22,11 @@ mixin Tasks on ChangeNotifier, Services {
   // Handle interactions with the tasks scheduler
   final List<TaskInfo> tasks = [];
   Timer? pollingTimer;
-  
+
   final Map<String, String> taskStatusById = {};
   final Map<String, String> taskIdToTempDocId = {};
 
-  // Register a new task 
+  // Register a new task
   void addTask(String taskId, String description, Function pollTasks) {
     tasks.insert(0, TaskInfo(id: taskId, description: description));
     notifyListeners();
@@ -42,5 +42,5 @@ mixin Tasks on ChangeNotifier, Services {
     ) async {
       await pollTasks();
     });
-  }  
+  }
 }

@@ -29,4 +29,3 @@ mixin SchemaResolver {
     return resolved['properties'] as Map<String, dynamic>?;
   }
 }
-

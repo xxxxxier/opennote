@@ -64,7 +64,7 @@ class AppState extends ChangeNotifier
       return false;
     }
   }
-  
+
   Future<bool> relogin(String username) async {
     try {
       this.username = username;
@@ -395,8 +395,7 @@ class AppState extends ChangeNotifier
     openObjectIds.removeAt(removedIndex);
     searchHighlights.remove(documentId);
 
-    final wasActiveDocument =
-        activeObject.type == ActiveObjectType.document &&
+    final wasActiveDocument = activeObject.type == ActiveObjectType.document &&
         activeObject.id == documentId;
     final wasLastActive = lastActiveObjectId == documentId;
 
@@ -447,8 +446,7 @@ class AppState extends ChangeNotifier
 
   Future<void> refreshDocuments() async {
     if (activeObject.id == null &&
-        activeObject.type != ActiveObjectType.collection)
-      return;
+        activeObject.type != ActiveObjectType.collection) return;
     final docs = await documents.getDocumentsMetadata(
       dio,
       activeObject.id,
@@ -505,8 +503,7 @@ class AppState extends ChangeNotifier
   Future<void> saveActiveDocument() async {
     if (activeObject.type != ActiveObjectType.document ||
         activeObject.id == null ||
-        username == null)
-      return;
+        username == null) return;
 
     final docId = activeObject.id!;
     final meta = documentById[docId];
@@ -571,9 +568,8 @@ class AppState extends ChangeNotifier
     // Merge with existing temp docs for this collection
     final List<DocumentMetadata> existingList =
         documentsByCollectionId[collectionId] ?? [];
-    final List<DocumentMetadata> tempDocs = existingList
-        .where((d) => d.isLocalDocument())
-        .toList();
+    final List<DocumentMetadata> tempDocs =
+        existingList.where((d) => d.isLocalDocument()).toList();
     final List<DocumentMetadata> combinedList = [...list, ...tempDocs];
 
     documentsByCollectionId[collectionId] = combinedList;

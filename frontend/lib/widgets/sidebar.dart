@@ -657,8 +657,7 @@ class _DocumentTileState extends State<DocumentTile> {
           focusNode: _focusNode,
           title: Text(widget.doc.title),
           leading: const Icon(Icons.article),
-          selected:
-              appState.activeObject.type == ActiveObjectType.document &&
+          selected: appState.activeObject.type == ActiveObjectType.document &&
               appState.activeObject.id == widget.doc.id,
           onTap: () {
             // _focusNode.requestFocus();

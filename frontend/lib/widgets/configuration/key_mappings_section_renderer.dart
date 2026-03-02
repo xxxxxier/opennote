@@ -15,8 +15,8 @@ class KeyMappingsSectionRenderer extends ConfigurationSectionRenderer
     final activeProfileSchemaRaw = properties[activeProfileKey];
     final Map<String, dynamic>? activeProfileSchema =
         activeProfileSchemaRaw is Map<String, dynamic>
-        ? activeProfileSchemaRaw
-        : null;
+            ? activeProfileSchemaRaw
+            : null;
     final Map<String, dynamic> activeProfileData =
         (sectionData[activeProfileKey] as Map<String, dynamic>?) ?? {};
 
@@ -48,9 +48,8 @@ class KeyMappingsSectionRenderer extends ConfigurationSectionRenderer
     final toggleDescription = toggleSchema?['description'] as String?;
 
     final isVimEnabled = sectionData['is_vim_key_mapping_enabled'] == true;
-    final activeProfileKey = isVimEnabled
-        ? 'vim_profile'
-        : 'conventional_profile';
+    final activeProfileKey =
+        isVimEnabled ? 'vim_profile' : 'conventional_profile';
 
     var (activeProfileSchema, activeProfileData) = _switchProfile(
       properties,
@@ -64,9 +63,8 @@ class KeyMappingsSectionRenderer extends ConfigurationSectionRenderer
         children: [
           SwitchListTile(
             title: Text(toggleTitle),
-            subtitle: toggleDescription != null
-                ? Text(toggleDescription)
-                : null,
+            subtitle:
+                toggleDescription != null ? Text(toggleDescription) : null,
             value: isVimEnabled,
             onChanged: (val) {
               onSectionChanged({

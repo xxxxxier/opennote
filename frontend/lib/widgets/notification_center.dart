@@ -8,7 +8,8 @@ class NotificationCenterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appState = AppStateScope.of(context);
     final tasks = appState.tasks;
-    final hasPending = tasks.any((t) => t.status == 'Pending' || t.status == 'InProgress');
+    final hasPending =
+        tasks.any((t) => t.status == 'Pending' || t.status == 'InProgress');
 
     return PopupMenuButton<void>(
       tooltip: 'Notifications',
@@ -46,7 +47,7 @@ class NotificationCenterButton extends StatelessWidget {
         return tasks.map((task) {
           IconData icon;
           Color color;
-          
+
           if (task.status == 'Success') {
             icon = Icons.check_circle;
             color = Colors.green;
@@ -57,7 +58,7 @@ class NotificationCenterButton extends StatelessWidget {
             icon = Icons.hourglass_empty;
             color = Colors.orange;
           }
-          
+
           return PopupMenuItem(
             enabled: false, // Non-interactive items
             child: Row(
@@ -81,7 +82,8 @@ class NotificationCenterButton extends StatelessWidget {
                       if (task.message != null && task.message!.isNotEmpty)
                         Text(
                           task.message!,
-                          style: const TextStyle(fontSize: 12, color: Colors.grey),
+                          style:
+                              const TextStyle(fontSize: 12, color: Colors.grey),
                           maxLines: 1000,
                           overflow: TextOverflow.ellipsis,
                         ),

@@ -14,7 +14,8 @@ BackendHealthStatus _$BackendHealthStatusFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$BackendHealthStatusToJson(
   BackendHealthStatus instance,
-) => <String, dynamic>{
-  'status': instance.status,
-  'timestamp': instance.timestamp,
-};
+) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'timestamp': instance.timestamp,
+    };

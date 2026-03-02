@@ -7,26 +7,25 @@ import 'package:notes/widgets/document_editor.dart';
 
 class ContentArea extends StatelessWidget {
   const ContentArea({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     final appState = AppStateScope.of(context);
-    
+
     // Update last document if the active item is a document
-    if (appState.activeObject.type == ActiveObjectType.document && appState.activeObject.id != null) {
+    if (appState.activeObject.type == ActiveObjectType.document &&
+        appState.activeObject.id != null) {
       appState.lastActiveObjectId = appState.activeObject.id;
     }
 
     if (appState.openObjectIds.isEmpty) {
       // Resolve shortcuts for display
-      final searchShortcut =
-          appState.keyBindings
+      final searchShortcut = appState.keyBindings
               .getShortcutForAction(KeyContext.global, AppAction.openSearch)
               ?.toString() ??
           'Ctrl + P';
 
-      final configShortcut =
-          appState.keyBindings
+      final configShortcut = appState.keyBindings
               .getShortcutForAction(KeyContext.global, AppAction.openConfig)
               ?.toString() ??
           'Cmd + ,';
@@ -164,15 +163,15 @@ class ContentArea extends StatelessWidget {
                 Text(
                   label,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
                 ),
                 Text(
                   shortcut,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
                 ),
               ],
             ),

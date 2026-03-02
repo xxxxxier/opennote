@@ -29,9 +29,8 @@ DocumentMetadata _$DocumentMetadataFromJson(Map<String, dynamic> json) =>
       lastModified: json['last_modified'] as String,
       collectionMetadataId: json['collection_metadata_id'] as String,
       title: json['title'] as String,
-      chunks: (json['chunks'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      chunks:
+          (json['chunks'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$DocumentMetadataToJson(DocumentMetadata instance) =>

@@ -184,16 +184,14 @@ class _BackupSettingsState extends State<BackupSettings> {
                       IconButton(
                         icon: const Icon(Icons.restore),
                         tooltip: "Restore",
-                        onPressed: _isLoading
-                            ? null
-                            : () => _restoreBackup(backup.id),
+                        onPressed:
+                            _isLoading ? null : () => _restoreBackup(backup.id),
                       ),
                       IconButton(
                         icon: const Icon(Icons.delete),
                         tooltip: "Delete",
-                        onPressed: _isLoading
-                            ? null
-                            : () => _deleteBackup(backup.id),
+                        onPressed:
+                            _isLoading ? null : () => _deleteBackup(backup.id),
                       ),
                     ],
                   ),

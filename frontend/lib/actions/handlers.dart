@@ -4,12 +4,11 @@ import 'package:notes/state/app_state.dart';
 import 'package:notes/state/app_state_scope.dart';
 import 'package:notes/services/key_mapping.dart';
 
-typedef ActionHandler =
-    Future<void> Function(
-      BuildContext context,
-      AppState appState,
-      GlobalKey<ScaffoldState>? scaffoldKey,
-    );
+typedef ActionHandler = Future<void> Function(
+  BuildContext context,
+  AppState appState,
+  GlobalKey<ScaffoldState>? scaffoldKey,
+);
 
 final Map<AppAction, ActionHandler> _actionHandlers = {
   AppAction.openConfig: (context, _, __) async =>

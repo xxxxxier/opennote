@@ -74,7 +74,6 @@ class _MainScreenState extends State<MainScreen> {
                     ? null
                     : () => _handleAction(AppAction.saveDocument),
               ),
-
             if (activeItem.type != ActiveObjectType.none ||
                 appState.username != null)
               IconButton(
